@@ -1,0 +1,15 @@
+worker_app: synapse.app.generic_worker
+worker_name: sync-worker-2
+
+# The replication listener on the main synapse process.
+worker_replication_host: 127.0.0.1
+worker_replication_http_port: 9093
+
+worker_listeners:
+  - type: http
+    port: 8084
+    resources:
+      - names:
+        - client
+
+worker_log_config:  /etc/matrix-synapse/sync-worker-2-log-config.yaml
